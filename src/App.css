@@ -3,6 +3,9 @@ img.devider1{
   width: 200px;
 }
 
+.txt_secondary_color{ color: #5A9FE0 }
+.bg_secondary_color { background-color: #5A9FE0 !important; }
+
 /* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

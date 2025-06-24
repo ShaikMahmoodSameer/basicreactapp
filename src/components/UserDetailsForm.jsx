@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
     TextField,
     Button,
-    Grid,
+    // Grid,
     //   Box,
     Typography,
     Container,
@@ -34,7 +34,7 @@ const UserDetailsForm = () => {
     return (
         <Container maxWidth="sm" className='p-0'>
             {/* <Box sx={{ p: 3, border: '1px solid #ccc', borderRadius: 2 }}> */}
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom className='txt_secondary_color'>
                 User Registeration Form
             </Typography>
             <img src="/Images/devider.png" alt="divider" className='devider1 mb-4' />
@@ -95,7 +95,7 @@ const UserDetailsForm = () => {
                     onChange={handleChange}
                     className='w-50'
                 />
-                <Button type="submit" variant="contained" fullWidth className='mt-2'>
+                <Button type="submit" variant="contained" fullWidth className='mt-2 bg_secondary_color'>
                     Submit
                 </Button>
             </form>
