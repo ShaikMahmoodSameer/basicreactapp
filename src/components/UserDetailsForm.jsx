@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
-import {
-    TextField,
-    Button,
-    // Grid,
-    //   Box,
-    Typography,
-    Container,
-} from '@mui/material';
+import { useState } from 'react';
+import { TextField, Button, Typography, Container } from '@mui/material';
+import axios from 'axios';
 
 const UserDetailsForm = () => {
     const [formData, setFormData] = useState({
@@ -25,15 +19,19 @@ const UserDetailsForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form Data:', formData);
-        // Add form validation or submission logic here
+        try{
+            const response = await axios.post('http://localhost:3220/walkathon-registration', formData);
+            console.log("Server response:", response.data);
+            setFormData({ fullName: '', qualification: '', designation: '', email: '', phone: '', city: '' }); // Rest Form Data
+        } catch(err){
+            console.log(err)
+        }
     };
 
     return (
         <Container maxWidth="sm" className='p-0'>
-            {/* <Box sx={{ p: 3, border: '1px solid #ccc', borderRadius: 2 }}> */}
             <Typography variant="h4" gutterBottom className='txt_secondary_color'>
                 User Registeration Form
             </Typography>
@@ -99,7 +97,6 @@ const UserDetailsForm = () => {
                     Submit
                 </Button>
             </form>
-            {/* </Box> */}
         </Container>
     );
 };
